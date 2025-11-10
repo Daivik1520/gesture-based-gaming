@@ -60,22 +60,6 @@ The pipeline processes each frame from your camera:
 5. Input backend converts `Command` into keyboard/mouse events
 6. Overlay draws pose and status for live debugging
 
-```mermaid
-flowchart LR
-    A[Camera] --> B[PoseTracker]
-    B --> C{Gesture Strategies}
-    C -->|BendMotion| D1[Cmd]
-    C -->|GunPose| D2[Cmd]
-    C -->|HandTurn| D3[Cmd]
-    C -->|HandPan| D4[Cmd]
-    C -->|PanicGesture| D5[Cmd]
-    D1 & D2 & D3 & D4 & D5 --> E[CompositeStrategy]
-    E --> F[KeyboardMouse Input (pynput)]
-    B --> G[Overlay Visualization]
-```
-
----
-
 ## Project Structure
 
 ```
