@@ -8,20 +8,6 @@ Modern, modular, and extensible gesture control for racing and action games usin
 
 ---
 
-## Demo
-
-Below are placeholders for GIFs/screenshots. Record your gameplay and drop the files into `docs/media/` using the exact filenames to render them here.
-
-- Overview: `docs/media/demo-overview.gif`
-- Bend Motion (forward/back): `docs/media/gesture-bend-motion.gif`
-- Gun Pose (fire): `docs/media/gesture-gun-pose.gif`
-- Hand Turn (left/right): `docs/media/gesture-hand-turn.gif`
-- Hand Pan (mouse/camera pan): `docs/media/gesture-hand-pan.gif`
-- Panic Gesture (kill switch): `docs/media/gesture-panic.gif`
-
-![Overview Demo](docs/media/demo-overview.gif)
-
----
 
 ## Key Features
 
@@ -149,28 +135,26 @@ Each strategy implements `GestureStrategy.evaluate(pose: PoseData) -> Command` a
 1) Bend Motion
    - Detects torso lean using shoulder vs hip depth (z) to decide forward/back
    - Config: `lean_threshold` (default 0.10)
-   - Visual: ![Bend Motion](docs/media/gesture-bend-motion.gif)
 
 2) Gun Pose
    - Both elbows bent under threshold and wrists close together -> fire
    - Config: `elbow_bent_threshold_deg`, `wrist_distance_px`
-   - Visual: ![Gun Pose](docs/media/gesture-gun-pose.gif)
-
+ 
 3) Hand Turn
    - Average wrist X vs center with dead-zone and hysteresis -> left/right booleans
    - Config: `dead_zone_px`, `invert_x`, `hysteresis_px`
-   - Visual: ![Hand Turn](docs/media/gesture-hand-turn.gif)
+ 
 
 4) Hand Pan
    - Average wrist offsets map to mouse dx/dy, EMA smoothing, clamped max per frame
    - Config: `sensitivity`, `dead_zone_px`, `max_px_per_frame`, `invert_y`, `use_velocity`, `ema_alpha`, `neutral_center`
    - Calibrate neutral by pressing `c` in app
-   - Visual: ![Hand Pan](docs/media/gesture-hand-pan.gif)
+
 
 5) Panic Gesture
    - Hold both wrists above nose for sustained `duration_sec` -> brake and zero mouse
    - Config: `duration_sec`
-   - Visual: ![Panic](docs/media/gesture-panic.gif)
+
 
 Optional: Shoulder Pan
    - Use shoulder depth difference to pan horizontally
@@ -274,7 +258,7 @@ ffmpeg -i clip.mp4 -vf "fps=12,scale=960:-1:flags=lanczos" -loop 0 docs/media/ge
 
 Licensed under the MIT License. See [LICENSE](LICENSE).
 
-Copyright (c) 2025 umang_3010
+Copyright (c) 2025 DAIVIK REDDY
 
 ---
 
